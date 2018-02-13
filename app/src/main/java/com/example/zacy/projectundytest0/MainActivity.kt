@@ -1,4 +1,4 @@
-package com.example.zacy.projectundytest0
+package com.zacy.projectundytest0
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
