@@ -4,14 +4,52 @@
 	<meta charset="UTF-8">
 	<title>Project Undy</title>
 	<script src="./js.js"></script>
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="css.css"><script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
 <body onload="onload()">
 	<div id="navbut" onclick="extendnav()"></div>
 	<div id="nav">
 		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
-		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
+		<!-- <div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div> -->
 	</div>
 	<div id="darken" onclick="hidenav()"></div>
+	<div id="compupdateswrapper"></div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyB4R7ZGnYLgntNcT7H_LZrsRPmr2b6JIHE",
+	    authDomain: "project-undy.firebaseapp.com",
+	    databaseURL: "https://project-undy.firebaseio.com",
+	    projectId: "project-undy",
+	    storageBucket: "project-undy.appspot.com",
+	    messagingSenderId: "71717485961"
+	  };
+	  firebase.initializeApp(config);
+
+
+	  var announcementsref = firebase.database().ref('compupdates/');
+	  announcementsref.on("value", function(snapshot) {
+	  		var announcementsdl = snapshot.val();
+	  		var noofcu = announcementsdl.noofcu;
+	  		for(var i = 0; i < noofcu; i++){
+	  			var name = "compupdate" + i;
+	  			var announcement = document.createElement("DIV");
+	  			announcement.id = name;
+	  			announcement.className = "announcements";
+	  			announcement.innerHTML = "<div class='cutitle'>"+announcementsdl[name].Title+"</div><div class='cudesc'>"+announcementsdl[name].Desc+"</div>";
+	  			$('compupdateswrapper').appendChild(announcement);
+	  		}
+		});
+
+
+	  function read(mes){
+	  	console.log(mes)
+	  }
+
+	</script>
+
 </body>
 </html>

@@ -5,17 +5,19 @@
 	<title>Project Undy</title>
 	<script src="./js.js"></script>
 	<link rel="stylesheet" href="css.css">
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
-<body onload="onload(); displayvenues();">
+<body onload="onload();">
 	<div id="navbut" onclick="extendnav()"></div>
 	<div id="nav">
 		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
-		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
+		<!-- <div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div> -->
 	</div>
 	<div id="darken" onclick="hidenav()"></div>
 
 	<div id="venuewrapper">
-		<div class="venues" id="y1"><div class="textwrapper">Hall</div></div>
+		<div class="venues" id="y1"></div>
 		<div class="venues" id="y2"></div>
 		<div class="venues" id="y3"></div>
 		<div class="venues" id="y4"></div>
@@ -23,17 +25,33 @@
 		<div class="venues" id="y6"></div>
 	</div>
 
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 	<script type="text/javascript">
-		var venues = ['Hall','Class','Hall','Class','Hall','Class'];
-		function displayvenues(){
+
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyB4R7ZGnYLgntNcT7H_LZrsRPmr2b6JIHE",
+	    authDomain: "project-undy.firebaseapp.com",
+	    databaseURL: "https://project-undy.firebaseio.com",
+	    projectId: "project-undy",
+	    storageBucket: "project-undy.appspot.com",
+	    messagingSenderId: "71717485961"
+	  };
+	  firebase.initializeApp(config);
+
+		var flags = firebase.database().ref('/');
+	  	flags.on("value", function(snapshot) {
+	  		var flagvs = snapshot.val();
+	  		venues = flagvs.Flag;
 			for(var i = 0; i < 6; i++){
 				var venuediv = document.createElement('DIV');
 				venuediv.className = "venues";
 				venuediv.id = "y"+(i+1);
-				venuediv.innerHTML = '<div class="textwrapper">'+venues[i]+'</div>';
+				venuediv.innerHTML = '<div class="textwrapper">Y'+(i+1)+"<br/>"+venues[0][i]+'</div>';
 				document.getElementById('venuewrapper').appendChild(venuediv);
-			}
 		}
+		});
+		
 
 	</script>
 </body>

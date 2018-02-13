@@ -10,8 +10,36 @@
 	<div id="navbut" onclick="extendnav()"></div>
 	<div id="nav">
 		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
-		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
+		<!-- <div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div> -->
 	</div>
 	<div id="darken" onclick="hidenav()"></div>
+
+	<div style="position: absolute; left: 10vw; width: 80vw; top:10vh; ">No matter who you are, no matter what you say, no matter what time and place it is, I will be there for you when you need a listening ear...</div>
+
+	<textarea style="position:absolute; top:22vh; height: 40vh; left: 20vw; width: 60vw;" id="message" type="text"></textarea>
+
+	<div onclick="send()" style="background-color: lightblue; top: 65vh; left: 20vw; width: 60vw; position: absolute; text-align: center; height: 50px; border-radius: 25px;" id="send"><div style="position: absolute; top: 15px; text-align: center; width: 100%;">Send</div></div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyB4R7ZGnYLgntNcT7H_LZrsRPmr2b6JIHE",
+	    authDomain: "project-undy.firebaseapp.com",
+	    databaseURL: "https://project-undy.firebaseio.com",
+	    projectId: "project-undy",
+	    storageBucket: "project-undy.appspot.com",
+	    messagingSenderId: "71717485961"
+	  };
+	  firebase.initializeApp(config);
+
+	  function send(){
+	  firebase.database().ref('feedbacks/'+localStorage.getItem('Name')+"/").set({
+		    username: localStorage.getItem('Name'),
+		    email: localStorage.getItem('Email'),
+		    text: document.getElementById('message').value
+		  });
+	}
+	</script>
 </body>
 </html>

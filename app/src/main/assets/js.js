@@ -1,6 +1,6 @@
-		var suggestions = [["Suggestion1","Suggestiondesc2","gates.html"],["Suggestion","Suggestiondesc","link"]];
+		var suggestions = [["It's morning","Find out where is the flag raising ceremony venue","flagraising.html"],["Say Jiayous to your friends","See the competitions coming up","compupdates.html"],["Check out the announcements you have missed","All the announcements in one place","announce.html"]];
 		var fullnaventry = [["Home","index.html"],["Announcements","announce.html"],["Flag-raising venue","flagraising.html"],["Staircases and gates","gates.html"],["Lend-and-borrow","lend.html"],["Competition Updates","compupdates.html"],["Canteen and Cafe","canteen.html"],["Teacher Locker finder","pigeon.html"],["Thought of The Week","totw.html"],["Chat","irc.html"],["Important Contacts","contacts.html"],["Fault report","fault.html"],["Logout","logout.html"]];
-		var naventry = [["Home","index.html"],["Announcements","announce.html"],["Flag-raising venue","flagraising.html"],["Thought of The Week","totw.html"],["Competition Updates","compupdates.html"],["Consultation Booking","locked.html"],["Canteen and Cafe","locked.html"],["Teacher Locker finder","locked.html"],["Staircases and gates","locked.html"],["Lend-and-borrow","locked.html"],["Chat","locked.html"],["Fault report","locked.html"],["Logout","logout.html"]];
+		var naventry = [["Home","index.html"],["Announcements","announce.html"],["Flag-raising venue","flagraising.html"],["Assembly Venue","assembly.html"],["Competition Updates","compupdates.html"],["Listening to you","feedback.html"],["Teacher Locker finder","locked.html"],["Blazer loan","locked.html"],["Consultation Booking","locked.html"],["Canteen and Cafe","locked.html"],["Staircases and gates","locked.html"],["Lend-and-borrow","locked.html"],["Chat","locked.html"],["Fault report","locked.html"],["Logout","logout.html"]];
 		var teachersnamelist = [[["Grace","Ong"],1],[["b"],2]];
 	function onloadhome(){
 		var logo = document.createElement("IMG");
@@ -59,4 +59,4 @@
 	function $(name){
 		return document.getElementById(name);
 	}
-	
+

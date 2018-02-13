@@ -8,15 +8,26 @@
 	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
-<body onload="onload()">
+<body onload="onload();">
 	<div id="navbut" onclick="extendnav()"></div>
 	<div id="nav">
 		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
 		<!-- <div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div> -->
 	</div>
+	<div id="darken" onclick="hidenav()"></div>
+
+	<div id="venuewrapper">
+		<div class="venues" id="y1"></div>
+		<div class="venues" id="y2"></div>
+		<div class="venues" id="y3"></div>
+		<div class="venues" id="y4"></div>
+		<div class="venues" id="y5"></div>
+		<div class="venues" id="y6"></div>
+	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-	<script>
+	<script type="text/javascript">
+
 	  // Initialize Firebase
 	  var config = {
 	    apiKey: "AIzaSyB4R7ZGnYLgntNcT7H_LZrsRPmr2b6JIHE",
@@ -28,28 +39,20 @@
 	  };
 	  firebase.initializeApp(config);
 
-
-	  var announcementsref = firebase.database().ref('announce/');
-	  announcementsref.on("value", function(snapshot) {
-	  		var announcementsdl = snapshot.val();
-	  		var noofan = announcementsdl.noofan;
-	  		for(var i = 0; i < noofan; i++){
-	  			var name = "announcement" + i;
-	  			var announcement = document.createElement("DIV");
-	  			announcement.id = name;
-	  			announcement.className = "announcements";
-	  			announcement.innerHTML = "<div class='antitle'>"+announcementsdl[name].Title+"</div><div class='andesc'>"+announcementsdl[name].Desc+"</div>";
-	  			$('announcementswrapper').appendChild(announcement);
-	  		}
+		var flags = firebase.database().ref('/');
+	  	flags.on("value", function(snapshot) {
+	  		var flagvs = snapshot.val();
+	  		venues = flagvs.Assembly;
+			for(var i = 0; i < 6; i++){
+				var venuediv = document.createElement('DIV');
+				venuediv.className = "venues";
+				venuediv.id = "y"+(i+1);
+				venuediv.innerHTML = '<div class="textwrapper">Y'+(i+1)+"<br/>"+venues[i]+'</div>';
+				document.getElementById('venuewrapper').appendChild(venuediv);
+		}
 		});
-
-
-	  function read(mes){
-	  	console.log(mes)
-	  }
+		
 
 	</script>
-	<div id="announcementswrapper"></div>
-	<div id="darken" onclick="hidenav()"></div>
 </body>
 </html>
