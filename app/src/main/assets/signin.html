@@ -6,24 +6,22 @@
 	<script src="./js.js"></script>
 	<link rel="stylesheet" href="css.css">
 	<script>
-		function signedIn(name, email){
+				
+		function signedIn(name,emailraw){
 			localStorage.setItem("Name",name);
+			var email = JSON.stringify(emailraw);
 			localStorage.setItem("Email",email);
-			window.location.href="index.html";
+			if (email.slice(-8)=='@dhs.sg"'){ window.location.href='./index.html'; } else {
+				Android.logout();
+			}
 		}
 	</script>
 
 </head>
-<body onload="onload()">
-	<div id="navbut" onclick="extendnav()"></div>
-	<div id="nav">
-		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
-		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
-	</div>
+<body style="background-color: #ddd;" onload="">
+	<img src="logo.png" style="position: absolute; left: 40vw; width: 20vw; height: 20vw; top: 30vh;" alt="">
+	<div style="position: absolute; top: 50vh; left: 20vw; width: 60vw; text-align: center; user-select: none;">To use My Dunman High, sign in with your DHS Email account</div>
+	<div id="login" onclick="Android.login();"><img src="glogo.png" style="position: absolute; top: 15px; left: 15px; width: 20px; height: 20px;" alt=""><div style="user-select: none; position: absolute; left: 50px; bottom: 14px; height: 20px;">Sign In with DHS Email</div></div>
 
-	<div id="login" onclick="//Android.login();" style="background-color: red; width: 100vw; height: 100vh;"></div>
-
-	
-	<div id="darken" onclick="hidenav()"></div>
 </body>
 </html>

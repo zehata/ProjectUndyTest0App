@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build()
         // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this,gso)
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         webView!!.settings.loadsImagesAutomatically = true
         webView!!.settings.javaScriptEnabled = true
         webView!!.settings.domStorageEnabled = true
@@ -74,8 +74,9 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             mGoogleSignInClient!!.signOut()
         }
+
         @JavascriptInterface
-        fun login(){
+        fun login() {
             signIn()
         }
     }
@@ -85,8 +86,8 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance();
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = mAuth?.getCurrentUser()
-        if(currentUser!=null){
-        updateUI(currentUser)
+        if (currentUser != null) {
+            updateUI(currentUser)
         }
     }
 
@@ -128,12 +129,10 @@ class MainActivity : AppCompatActivity() {
                 }
     }
 
-    fun updateUI(account: FirebaseUser?){
-        if(account!=null){
-            webView!!.settings.loadsImagesAutomatically = true
-            webView!!.settings.javaScriptEnabled = true
-            webView!!.settings.domStorageEnabled = true
-            webView!!.loadUrl("javascript:signedIn('"+account.displayName+"','"+account.email+"')")
+    fun updateUI(account: FirebaseUser?) {
+        if (account != null) {
+            webView!!.loadUrl("javascript:setTimeout(function(){signedIn('" + account.displayName + "','" + account.email + "');},500)")
+
         }
     }
 }
