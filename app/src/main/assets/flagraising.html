@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Undy</title>
+	<script src="./js.js"></script>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body onload="onload(); displayvenues();">
+	<div id="navbut" onclick="extendnav()"></div>
+	<div id="nav">
+		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
+		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
+	</div>
+	<div id="darken" onclick="hidenav()"></div>
+
+	<div id="venuewrapper">
+		<div class="venues" id="y1"><div class="textwrapper">Hall</div></div>
+		<div class="venues" id="y2"></div>
+		<div class="venues" id="y3"></div>
+		<div class="venues" id="y4"></div>
+		<div class="venues" id="y5"></div>
+		<div class="venues" id="y6"></div>
+	</div>
+
+	<script type="text/javascript">
+		var venues = ['Hall','Class','Hall','Class','Hall','Class'];
+		function displayvenues(){
+			for(var i = 0; i < 6; i++){
+				var venuediv = document.createElement('DIV');
+				venuediv.className = "venues";
+				venuediv.id = "y"+(i+1);
+				venuediv.innerHTML = '<div class="textwrapper">'+venues[i]+'</div>';
+				document.getElementById('venuewrapper').appendChild(venuediv);
+			}
+		}
+
+	</script>
+</body>
+</html>

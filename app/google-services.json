@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "71717485961",
+    "firebase_url": "https://project-undy.firebaseio.com",
+    "project_id": "project-undy",
+    "storage_bucket": "project-undy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71717485961:android:71f5a849cc32b541",
+        "android_client_info": {
+          "package_name": "com.example.zacy.projectundytest0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71717485961-2b9ltq2li1g0h2nk1h4senqnvv6h8nvc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zacy.projectundytest0",
+            "certificate_hash": "cecec033b570060c544a886d5afd431796790888"
+          }
+        },
+        {
+          "client_id": "71717485961-2mspuu3i6ap3j1pm5qncfgsb4qlvfmid.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zacy.projectundytest0",
+            "certificate_hash": "9573a01575d41c017da322adbcec1705dec9c29c"
+          }
+        },
+        {
+          "client_id": "71717485961-qq5125ih36lvjud9gj1irakh1qhnuceg.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "71717485961-7bbanhadg67r73ohj4bl88s4bs264fdq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zacy.projectundytest0",
+            "certificate_hash": "d3efc7927330b277e5e4945c2060dbff5fb0d4b3"
+          }
+        },
+        {
+          "client_id": "71717485961-nn35m14e2msp30t6mpbqnou9mgapb0ad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0nmeubxr6S8rFo5Ta-AsIebktmtZpoLs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71717485961-qq5125ih36lvjud9gj1irakh1qhnuceg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71717485961-qgcs7fndil4i2gsi21o9u1hi6fv5dlbt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Dunman-High.My-Dunman-High"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

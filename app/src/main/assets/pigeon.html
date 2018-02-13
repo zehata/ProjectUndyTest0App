@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Undy</title>
+	<script src="./js.js"></script>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body onload="onload(); document.getElementById('lockersearch').focus();">
+	<div id="navbut" onclick="extendnav()"></div>
+	<div id="nav">
+		<div id="splash" class="naventry"></div>
+		<div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div>
+	</div>
+	<div id="darken" onclick="hidenav()"></div>
+
+	<div id="lockersearchwrapper"><input type="text" placeholder="Enter the teacher's name" id="lockersearch"></div>
+	<div id="lockerwrapper"></div>
+
+	<script type="text/javascript">
+		document.getElementById('lockersearch').onkeyup = function(){
+			document.getElementById("lockerwrapper").innerHTML = "";
+			var searchlist = [];
+			var teachersname = document.getElementById('lockersearch').value;
+			var teachersnamestr = teachersname.split(" ");
+			for (var j = 0; j < teachersnamestr.length; j++){
+				for (var k = 0; k < teachersnamelist.length; k++){
+					var addtosearchlist = false;
+					for (var l = 0; l < teachersnamelist[k][0].length; l++){
+						if (teachersnamelist[k][0][l].toUpperCase()==teachersnamestr[j].toUpperCase()){
+							addtosearchlist = true;
+						}
+					}
+					if ( addtosearchlist == true ){
+						searchlist.push(teachersnamelist[k]);
+					}
+					
+				}
+			}
+			for (var m = 0; m < searchlist.length; m++){
+				var pigeonhole = document.createElement("DIV");
+				pigeonhole.className = "pigeonholes";
+				pigeonhole.id = "pigeonhole"+ m;
+				var name = ""
+				for (var n = 0; n < searchlist[m][0].length; n++){
+					name += searchlist[m][0][n] + " ";
+				}
+				pigeonhole.innerHTML = "<div class='teachersname'>"+name+"</div><div class='lockernumber'>"+searchlist[m][1]+"</div>"
+				document.getElementById('lockerwrapper').appendChild(pigeonhole);
+			}
+			
+		}
+	</script>
+</body>
+</html>

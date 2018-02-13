@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project-Undy</title>
+	<script src="./js.js"></script>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body onload="onloadhome()">
+	<div id="navbut" onclick="extendnav()"></div>
+	<div id="nav">
+		<div id="splash" class="naventry"><img id="logo" src="" alt=""></div>
+		<!-- <div id="search" class="naventry"><input type="text" id="searchwrapper" placeholder="Search"></input></div> -->
+	</div>
+	<div id="darken" onclick="hidenav()"></div>
+	<div id="homescreensuggestionswrapper"></div>
+
+	<script>
+	if(localStorage.getItem('Name')){
+
+	} else {
+		alert(localStorage.getItem('Name'));
+	}	
+	</script>
+</body>
+</html>
